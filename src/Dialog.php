@@ -214,12 +214,12 @@ class Dialog extends Widget
     public function initOptions()
     {
         $isBs4 = $this->isBs4();
-        $defaultBtnCss = $isBs4 ? 'btn-outline-secondary' : 'btn-default';
-        $this->iconOk = $isBs4 ? 'fas fa-check' : 'glyphicon glyphicon-ok';
-        $this->iconCancel = $isBs4 ? 'fas fa-ban' : 'glyphicon glyphicon-ban-circle';
+        $defaultBtnCss = $isBs4 ? 'btn' : 'btn';
+//        $this->iconOk = $isBs4 ? 'fas fa-check' : 'glyphicon glyphicon-ok';
+//        $this->iconCancel = $isBs4 ? 'fas fa-ban' : 'glyphicon glyphicon-ban-circle';
         $this->iconSpinner = $isBs4 ? 'fas fa-asterisk' : 'glyphicon glyphicon-asterisk';
-        $ok = Yii::t('kvdialog', 'Ok');
-        $cancel = Yii::t('kvdialog', 'Cancel');
+        $ok = Yii::t('kvdialog', 'Ok →');
+        $cancel = Yii::t('kvdialog', 'Cancel →');
         $info = Yii::t('kvdialog', 'Information');
         $okLabel = '<span class="' . $this->iconOk . '"></span> ' . $ok;
         $cancelLabel = '<span class="' . $this->iconCancel . '"></span> ' . ' ' . $cancel;
@@ -227,8 +227,8 @@ class Dialog extends Widget
             'draggable' => false,
             'title' => $info,
             'buttons' => [
-                ['label' => $cancel, 'icon' => $this->iconCancel, 'cssClass' => $defaultBtnCss],
-                ['label' => $ok, 'icon' => $this->iconOk, 'cssClass' => 'btn-primary'],
+                ['label' => $cancel, 'icon' => $this->iconCancel, 'cssClass' => 'btn'],
+                ['label' => $ok, 'icon' => $this->iconOk, 'cssClass' => 'btn'],
             ],
         ];
         $otherDialog['draggable'] = true;
@@ -242,7 +242,7 @@ class Dialog extends Widget
             self::DIALOG_CONFIRM => [
                 'type' => self::TYPE_WARNING,
                 'title' => Yii::t('kvdialog', 'Confirmation'),
-                'btnOKClass' => 'btn-warning',
+                'btnOKClass' => 'btn',
                 'btnOKLabel' => $okLabel,
                 'btnCancelLabel' => $cancelLabel
             ],
