@@ -410,7 +410,7 @@
      */
     BootstrapDialog.prototype = {
         constructor: BootstrapDialog,
-        defaultButtonCss: 'btn-default', // Enhancement by Kartik
+        defaultButtonCss: 'btn', // Enhancement by Kartik
         initOptions: function (options) {
             this.options = $.extend(true, this.defaultOptions, options);
             return this;
@@ -438,9 +438,9 @@
             return this;
         },
         createModal: function () {
-            var $modal = $('<div class="modal" role="dialog" aria-hidden="true"></div>');
-            $modal.prop('id', this.getId());
-            $modal.attr('aria-labelledby', this.getId() + '_title');
+            var $modal = $('<div class="modal" role="dialog" aria-hidden="true" id="confirm-modal"></div>');
+            // $modal.prop('id', this.getId());
+            // $modal.attr('aria-labelledby', this.getId() + '_title');
 
             return $modal;
         },
@@ -459,7 +459,7 @@
             return this.getModal();
         },
         createModalDialog: function () {
-            return $('<div class="modal-dialog"></div>');
+            return $('<div class="modal-dialog" role="document"></div>');
         },
         getModalDialog: function () {
             return this.$modalDialog;
@@ -835,9 +835,9 @@
         createCloseButton: function () {
             var $container = $('<div></div>');
             $container.addClass(this.getNamespace('close-button'));
-            var $icon = $('<button class="close" data-dismiss="modal" aria-label="close"></button>');
-            $icon.append(this.options.closeIcon);
-            $container.append($icon);
+            // var $icon = $('<button class="btn btn-close btn-rounded" data-dismiss="modal" aria-label="close"></button>');
+            // $icon.append(this.options.closeIcon);
+            // $container.append($icon);
             $container.on('click', {dialog: this}, function (event) {
                 event.data.dialog.close();
             });
@@ -854,7 +854,7 @@
             return $container;
         },
         createMessageContent: function () {
-            var $message = $('<div></div>');
+            var $message = $('<div><p></p></div>');
             $message.addClass(this.getNamespace('message'));
 
             return $message;
@@ -882,7 +882,7 @@
             return $container;
         },
         createButton: function (button) {
-            var $button = $('<button class="btn"></button>');
+            var $button = $('<button class="btn btn-close btn-rounded"></button>');
             $button.prop('id', button.id);
             $button.data('button', button);
 
@@ -1451,3 +1451,4 @@
     return BootstrapDialog;
 
 }));
+
