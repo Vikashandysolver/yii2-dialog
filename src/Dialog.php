@@ -242,7 +242,8 @@ class Dialog extends Widget
             self::DIALOG_CONFIRM => [
                 'type' => self::TYPE_WARNING,
                 'title' => Yii::t('kvdialog', 'Confirmation'),
-                'btnOKClass' => 'btn',
+                'btnOKClass' => 'btn btn-enable waves-effect',
+                'btnCancelClass' => 'btn btn-close waves-effect',
                 'btnOKLabel' => $okLabel,
                 'btnCancelLabel' => $cancelLabel
             ],
